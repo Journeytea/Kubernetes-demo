@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-d
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: jourbey/nginx
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+  selector:
+    matchLabels:
+      app: nginx
