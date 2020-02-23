@@ -43,7 +43,7 @@ spec:
     max: 65535
   # SELinux
   seLinux:
-    # SELinux is unused in CaaSP
+    # SELinux is unsed in CaaSP
     rule: 'RunAsAny'
 ---
 kind: ClusterRole
@@ -105,8 +105,8 @@ metadata:
 data:
   cni-conf.json: |
     {
-      "name": "vxlan0",
-      "cniVersion": "0.3.1",
+      "cniVersion": "0.2.0",
+      "name": "cbr0",
       "plugins": [
         {
           "type": "flannel",
@@ -127,9 +127,7 @@ data:
     {
       "Network": "10.244.0.0/16",
       "Backend": {
-        "Type": "vxlan",
-        "VNI" : 4096,
-        "Port": 4789 
+        "Type": "vxlan"
       }
     }
 ---
@@ -201,7 +199,7 @@ spec:
         securityContext:
           privileged: false
           capabilities:
-            add: ["NET_ADMIN"]
+             add: ["NET_ADMIN"]
         env:
         - name: POD_NAME
           valueFrom:
