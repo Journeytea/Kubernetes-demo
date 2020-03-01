@@ -62,8 +62,9 @@ spec:
       - name: jenkinshome
         persistentVolumeClaim:
           claimName: opspvc
+
       nodeSelector:
-        role: "worker"
+        role: "master"
   selector:
       matchLabels:
         app: jenkins2

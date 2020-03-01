@@ -8,10 +8,12 @@ metadata:
 spec:
   selector:
     app: jenkins2
+  type: NodePort
   ports:
   - name: web
     port: 8080
     targetPort: web
+    nodePort: 30002
   - name: agent
     port: 50000
     targetPort: agent
