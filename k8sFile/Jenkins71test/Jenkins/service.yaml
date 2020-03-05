@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins000
+  namespace: kube-jenkins-test
+  labels:
+    app: jenkins000
+spec:
+  selector:
+    app: jenkins000
+  type: NodePort
+  ports:
+  - name: web
+    port: 8080
+    targetPort: web
+    nodePort: 30008
+  - name: agent
+    port: 50000
+    targetPort: agent

@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins2
-  namespace: kube-jenkins
+  name: jenkins000
+  namespace: kube-jenkins-test
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: jenkins2
+        app: jenkins000
     spec:
       terminationGracePeriodSeconds: 10
-      serviceAccountName: jenkins2
+      serviceAccountName: jenkins000
       containers:
       - name: jenkins
-        image: fcumselab/progedu-jenkins:1.0
+        image: jenkins/jenkins:lts
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -46,7 +46,7 @@ spec:
           failureThreshold: 12
         volumeMounts:
         - name: jenkinshome
-          subPath: jenkins2
+          subPath: jenkins000
           mountPath: /var/jenkins_home
         env:
         - name: LIMITS_MEMORY
@@ -61,10 +61,10 @@ spec:
       volumes:
       - name: jenkinshome
         persistentVolumeClaim:
-          claimName: opspvc
+          claimName: opspvc000
 
       nodeSelector:
-        role: "master"
+        role: "worker"
   selector:
       matchLabels:
-        app: jenkins2
+        app: jenkins000
