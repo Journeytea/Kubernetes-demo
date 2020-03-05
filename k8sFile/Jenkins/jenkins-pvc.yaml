@@ -10,12 +10,38 @@ spec:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
   hostPath:
-    path: "/data/k8s"
+    path: "/var/jenkins_home"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: opspv-kvm
+  namespace: kube-jenkins
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  hostPath:
+    path: "/dev/kvm"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: opspvc
+  namespace: kube-jenkins
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: opspvc-kvm
   namespace: kube-jenkins
 spec:
   accessModes:

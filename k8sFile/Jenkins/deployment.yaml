@@ -48,6 +48,9 @@ spec:
         - name: jenkinshome
           subPath: jenkins2
           mountPath: /var/jenkins_home
+        - name: kvm
+          subPath: kvm2
+          mountPath: /dev/kvm
         env:
         - name: LIMITS_MEMORY
           valueFrom:
@@ -62,6 +65,9 @@ spec:
       - name: jenkinshome
         persistentVolumeClaim:
           claimName: opspvc
+      - name: kvm
+        persistentVolumeClaim:
+          claimName: opspvc-kvm
 
       nodeSelector:
         role: "master"
