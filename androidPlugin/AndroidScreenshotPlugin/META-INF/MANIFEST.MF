@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: Moty
+Build-Jdk: 1.8.0_231
+Extension-Name: AndroidScreenshotPlugin
+Specification-Title: The Jenkins Plugins Parent POM Project
+Implementation-Title: AndroidScreenshotPlugin
+Implementation-Version: 1.0
+Group-Id: io.jenkins.plugins
+Short-Name: AndroidScreenshotPlugin
+Long-Name: Android Screenshot Plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.0
+Hudson-Version: 2.164.1
+Jenkins-Version: 2.164.1
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/plugin-pom/AndroidScreensh
+ otPlugin
+

@@ -49,7 +49,6 @@ spec:
           subPath: jenkins2
           mountPath: /var/jenkins_home
         - name: kvm
-          subPath: kvm2
           mountPath: /dev/kvm
         env:
         - name: LIMITS_MEMORY
