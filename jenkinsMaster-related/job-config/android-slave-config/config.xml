@@ -112,7 +112,7 @@ find ./target -iname *.png | while read line; do mv $line ./target/screenshot/; 
       <operationList class="empty-list"/>
     </hudson.plugins.build__timeout.BuildStepWithTimeout>
     <hudson.tasks.Shell>
-      <command>echo &quot;æ¸¬è©¦ Kubernetes ?•æ??Ÿæ? jenkins slave&quot;
+      <command>echo &quot;Test Kubernetes generate jenkins slave&quot;
 echo &quot;=============kubectl get describe start =============&quot;
 kubectl get pod -n kube-jenkins -o wide
 
