@@ -19,7 +19,7 @@ RUN apt-get update \
 # Install GRADLE and MAVEN:
 ###########################################################################
 
-ARG GRADLE_MAVEN=5.6.2
+ARG GRADLE_MAVEN=5.6.4
 ENV PATH=$PATH:/opt/gradle/gradle-$GRADLE_MAVEN/bin
 RUN apt-get update && apt-get install -y default-jdk maven \
       && \
