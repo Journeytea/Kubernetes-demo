@@ -3,7 +3,7 @@
   <disabledAdministrativeMonitors/>
   <version>2.204.3</version>
   <installStateName>RUNNING</installStateName>
-  <numExecutors>2</numExecutors>
+  <numExecutors>0</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
@@ -124,24 +124,24 @@
               <hostPath>/dev/kvm</hostPath>
             </org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
             <org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
-              <mountPath>/dev/test_volum</mountPath>
-              <hostPath>/dev/test_volum</hostPath>
+              <mountPath>/var/jenkins_home/workspace/</mountPath>
+              <hostPath>/var/jenkins_home/workspace/</hostPath>
             </org.csanchez.jenkins.plugins.kubernetes.volumes.HostPathVolume>
           </volumes>
           <containers>
             <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
               <name>jnlp</name>
-              <image>jourbey/jenkinsslave:v2</image>
+              <image>jourbey/jenkinsslave:v3</image>
               <privileged>true</privileged>
               <alwaysPullImage>false</alwaysPullImage>
               <workingDir>/var/jenkins_home</workingDir>
               <command></command>
               <args></args>
               <ttyEnabled>true</ttyEnabled>
-              <resourceRequestCpu></resourceRequestCpu>
-              <resourceRequestMemory></resourceRequestMemory>
-              <resourceLimitCpu></resourceLimitCpu>
-              <resourceLimitMemory></resourceLimitMemory>
+              <resourceRequestCpu>1000m</resourceRequestCpu>
+              <resourceRequestMemory>1500Mi</resourceRequestMemory>
+              <resourceLimitCpu>1500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
               <envVars/>
               <ports/>
               <livenessProbe>
@@ -172,7 +172,7 @@
       <jenkinsUrl>http://jenkins2.kube-jenkins.svc.cluster.local:8080</jenkinsUrl>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
-      <connectTimeout>5</connectTimeout>
+      <connectTimeout>10</connectTimeout>
       <readTimeout>15</readTimeout>
       <podLabels>
         <org.csanchez.jenkins.plugins.kubernetes.PodLabel>
@@ -205,4 +205,3 @@
   </crumbIssuer>
   <nodeProperties/>
   <globalNodeProperties/>
-</hudson>
